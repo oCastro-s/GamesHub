@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamesHub - Core Network</title>
+    <!-- Vinculando o arquivo CSS externo local -->
+    <link rel="stylesheet" href="visual.css">
+</head>
+<body>
+
+    <!-- Estado de Login da Aplicação -->
+    <input type="checkbox" id="login-state">
+
+    <!-- Sistema de Roteamento de Abas em CSS -->
+    <input type="radio" name="main-tabs" id="tab-jogos" class="tab-switch" checked>
+    <input type="radio" name="main-tabs" id="tab-biblioteca" class="tab-switch">
+    <input type="radio" name="main-tabs" id="tab-conquistas" class="tab-switch">
+    <input type="radio" name="main-tabs" id="tab-forum" class="tab-switch">
+    <input type="radio" name="main-tabs" id="tab-calendario" class="tab-switch">
+    <input type="radio" name="main-tabs" id="tab-wiki" class="tab-switch">
+    <input type="radio" name="main-tabs" id="tab-quem-somos" class="tab-switch">
+
+    <!-- 1. PÁGINA INDEPENDENTE DE LOGIN -->
+    <div class="login-page-wrapper">
+        <div class="login-box">
+            <div class="avatar-round">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.4MWinmwEq74-kvEyiQdllwHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Net ID Avatar">
+            </div>
+            <h2>Acesso à Rede</h2>
+            <p>Conectando ao núcleo criptografado...</p>
+            
+            <div class="form-group">
+                <label>Cyber Net-ID</label>
+                <input type="text" value="admin@gameshub.net" readonly>
+            </div>
+            <div class="form-group">
+                <label>Chave de Acesso</label>
+                <input type="password" value="••••••••" readonly>
+            </div>
+            
+            <label for="login-state" class="btn-login">Autenticar Conexão</label>
+        </div>
+    </div>
+
+    <!-- 2. APLICAÇÃO PRINCIPAL -->
+    <div class="app-container">
+        
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">GAMES<span>HUB</span></div>
+            
+            <!-- CAIXINHA DE OPÇÕES TRANSPARENTE COM ÍCONES SVG VAZADOS -->
+            <nav class="nav-menu-box">
+                <label for="tab-jogos">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"></rect><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"></path></svg>
+                    <span>Jogos</span>
+                </label>
+                <label for="tab-biblioteca">
+                    <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span>Biblioteca</span>
+                </label>
+                <label for="tab-conquistas">
+                    <svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34M12 2a5 5 0 0 0-5 5v3c0 2.76 2.24 5 5 5s5-2.24 5-5V7a5 5 0 0 0-5-5z"></path></svg>
+                    <span>Conquistas</span>
+                </label>
+                <label for="tab-forum">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <span>Fórum</span>
+                </label>
+                <label for="tab-calendario">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Calendário</span>
+                </label>
+                <label for="tab-wiki">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <span>Wiki</span>
+                </label>
+                <label for="tab-quem-somos">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <span>Quem Somos</span>
+                </label>
+            </nav>
+        </aside>
+
+        <!-- ÁREA DE CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- Barra Superior com Busca Centralizada e Perfil -->
+            <div class="top-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Pesquisar no banco de dados da central...">
+                </div>
+
+                <div class="user-profile-widget">
+                    <span class="username">Mito_22</span>
+                    <div class="avatar-round">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.4MWinmwEq74-kvEyiQdllwHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="User Avatar">
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 1: JOGOS (DASHBOARD) -->
+            <div id="panel-jogos" class="tab-content-panel">
+                
+                <!-- CARROSSEL DE NOTÍCIAS AUTOMÁTICO (3s) -->
+                <div class="carousel-container">
+                    <div class="carousel-viewport">
+                        
+                        <!-- ==================== SLIDE 1 (EDITÁVEL) ==================== -->
+                        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200');">
+                            <div class="slide-content">
+                                <h2 class="slide-title">Destaque</h2>
+                                <p class="slide-subtitle">Sua nova dose diária de adrenalina chegou ao servidor principal.</p>
+                                <a href="https://youtube.com" target="_blank" class="btn-view-news">Ver Notícia</a>
+                            </div>
+                        </div>
+
+                        <!-- ==================== SLIDE 2 (EDITÁVEL) ==================== -->
+                        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=1200');">
+                            <div class="slide-content">
+                                <h2 class="slide-title">Destaque</h2>
+                                <p class="slide-subtitle">Novas atualizações gráficas prontas para renderização em tempo real.</p>
+                                <a href="https://youtube.com" target="_blank" class="btn-view-news">Ver Notícia</a>
+                            </div>
+                        </div>
+
+                        <!-- ==================== SLIDE 3 (EDITÁVEL) ==================== -->
+                        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?q=80&w=1200');">
+                            <div class="slide-content">
+                                <h2 class="slide-title">Destaque</h2>
+                                <p class="slide-subtitle">Torneios e campeonatos ativos. Prepare seu esquadrão.</p>
+                                <a href="https://youtube.com" target="_blank" class="btn-view-news">Ver Notícia</a>
+                            </div>
+                        </div>
+
+                        <!-- ==================== SLIDE 4 (EDITÁVEL) ==================== -->
+                        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=1200');">
+                            <div class="slide-content">
+                                <h2 class="slide-title">Destaque</h2>
+                                <p class="slide-subtitle">Hardware de última geração testado e homologado pelos administradores.</p>
+                                <a href="https://youtube.com" target="_blank" class="btn-view-news">Ver Notícia</a>
+                            </div>
+                        </div>
+
+                        <!-- ==================== SLIDE 5 (EDITÁVEL) ==================== -->
+                        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200');">
+                            <div class="slide-content">
+                                <h2 class="slide-title">Destaque</h2>
+                                <p class="slide-subtitle">Abaixo da superfície do código, segredos ocultos aguardam.</p>
+                                <a href="https://youtube.com" target="_blank" class="btn-view-news">Ver Notícia</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 5 Bolinhas Sincronizadas -->
+                    <div class="carousel-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <!-- SEÇÃO DE NOTÍCIAS (GRID 4 COLUNAS / 8 CARDS) -->
+                <h2 class="section-title">Notícias / <strong>Recentes</strong></h2>
+                <div class="news-grid">
+                    <!-- Cards de Notícias 1 a 8 -->
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Novos drivers de vídeo otimizados para RayTracing</h3>
+                            <span class="game-card-italic-text">Postado há 12 min</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Review do novo RPG que promete quebrar recordes</h3>
+                            <span class="game-card-italic-text">Postado há 1 hora</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Análise de periféricos premium ciano e magenta</h3>
+                            <span class="game-card-italic-text">Postado há 2 horas</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Atualização massiva corrige bugs nos consoles</h3>
+                            <span class="game-card-italic-text">Postado há 4 horas</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Modders recriam mapa clássico em motor potente</h3>
+                            <span class="game-card-italic-text">Postado ontem</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Torneio de e-sports bate recorde de público</h3>
+                            <span class="game-card-italic-text">Postado ontem</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1560253023-3ec5d502959f?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Estúdio independente anuncia sequência indie</h3>
+                            <span class="game-card-italic-text">Postado há 3 dias</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Vendas globais de consoles atingem marcas recordes</h3>
+                            <span class="game-card-italic-text">Postado há 1 semana</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ABAS EM CONSTRUÇÃO COM MARCADOR UNIVERSAL -->
+            <!-- TAB 2: BIBLIOTECA -->
+            <div id="panel-biblioteca" class="tab-content-panel">
+                <div class="construction-wrapper">
+                    <div class="construction-img-placeholder"></div>
+                    <h2>Biblioteca</h2>
+                    <p>Esta seção encontra-se atualmente <i>em construção</i>.</p>
+                </div>
+            </div>
+
+            <!-- TAB 3: CONQUISTAS -->
+            <div id="panel-conquistas" class="tab-content-panel">
+                <div class="construction-wrapper">
+                    <div class="construction-img-placeholder"></div>
+                    <h2>Conquistas</h2>
+                    <p>Esta seção encontra-se atualmente <i>em construção</i>.</p>
+                </div>
+            </div>
+
+            <!-- TAB 4: FÓRUM -->
+            <div id="panel-forum" class="tab-content-panel">
+                <div class="construction-wrapper">
+                    <div class="construction-img-placeholder"></div>
+                    <h2>Fórum</h2>
+                    <p>Esta seção encontra-se atualmente <i>em construção</i>.</p>
+                </div>
+            </div>
+
+            <!-- TAB 5: CALENDÁRIO -->
+            <div id="panel-calendario" class="tab-content-panel">
+                <div class="construction-wrapper">
+                    <div class="construction-img-placeholder"></div>
+                    <h2>Calendário</h2>
+                    <p>Esta seção encontra-se atualmente <i>em construção</i>.</p>
+                </div>
+            </div>
+
+            <!-- TAB 6: WIKI -->
+            <div id="panel-wiki" class="tab-content-panel">
+                <div class="construction-wrapper">
+                    <div class="construction-img-placeholder"></div>
+                    <h2>Wiki</h2>
+                    <p>Esta seção encontra-se atualmente <i>em construção</i>.</p>
+                </div>
+            </div>
+
+            <!-- TAB 7: QUEM SOMOS -->
+            <div id="panel-quem-somos" class="tab-content-panel">
+                <div class="construction-wrapper">
+                    <div class="construction-img-placeholder"></div>
+                    <h2>Quem Somos</h2>
+                    <p>Esta seção encontra-se atualmente <i>em construção</i>.</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
