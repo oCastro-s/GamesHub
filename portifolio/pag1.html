@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamesHub - Core Network</title>
+    <!-- Vinculando o arquivo CSS externo local -->
+    <link rel="stylesheet" href="visual.css">
+</head>
+<body>
+
+    <!-- Estado de Login da Aplicação -->
+    <input type="checkbox" id="login-state">
+
+    <!-- Sistema de Roteamento de Abas em CSS -->
+    <input type="radio" name="main-tabs" id="tab-jogos" class="tab-switch" checked>
+    <input type="radio" name="main-tabs" id="tab-biblioteca" class="tab-switch">
+    <input type="radio" name="main-tabs" id="tab-conquistas" class="tab-switch">
+    <input type="radio" name="main-tabs" id="tab-forum" class="tab-switch">
+    <input type="radio" name="main-tabs" id="tab-calendario" class="tab-switch">
+    <input type="radio" name="main-tabs" id="tab-wiki" class="tab-switch">
+    <input type="radio" name="main-tabs" id="tab-quem-somos" class="tab-switch">
+
+    <!-- 1. PÁGINA INDEPENDENTE DE LOGIN -->
+    <div class="login-page-wrapper">
+        <div class="login-box">
+            <div class="avatar-round">
+                <img src="images/userfoto.jpg" alt="Net ID Avatar">
+            </div>
+            <h2>LOGIN</h2>
+            <p>CONECTANDO AO CYBERSPACE...</p>
+            
+            <div class="form-group">
+                <label>Cyber Net-ID</label>
+                <input type="text" value="admin@gameshub.net" readonly>
+            </div>
+            <div class="form-group">
+                <label>senha</label>
+                <input type="password" value="••••••••" readonly>
+            </div>
+            
+            <label for="login-state" class="btn-login">LOGIN</label>
+        </div>
+    </div>
+
+    <!-- 2. APLICAÇÃO PRINCIPAL -->
+    <div class="app-container">
+        
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">GAMES<span>HUB</span></div>
+            
+            <!-- CAIXINHA DE OPÇÕES TRANSPARENTE COM ÍCONES SVG VAZADOS -->
+            <nav class="nav-menu-box">
+                <label for="tab-jogos">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"></rect><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"></path></svg>
+                    <span>Jogos</span>
+                </label>
+                <label for="tab-biblioteca">
+                    <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span>Biblioteca</span>
+                </label>
+                <label for="tab-conquistas">
+                    <svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34M12 2a5 5 0 0 0-5 5v3c0 2.76 2.24 5 5 5s5-2.24 5-5V7a5 5 0 0 0-5-5z"></path></svg>
+                    <span>Conquistas</span>
+                </label>
+                <label for="tab-forum">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <span>Fórum</span>
+                </label>
+                <label for="tab-calendario">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Calendário</span>
+                </label>
+                <label for="tab-wiki">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <span>Wiki</span>
+                </label>
+                <label for="tab-quem-somos">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <span>Quem Somos</span>
+                </label>
+            </nav>
+        </aside>
+
+        <!-- ÁREA DE CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- Barra Superior com Busca Centralizada e Perfil -->
+            <div class="top-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Pesquisar no banco de dados da central...">
+                </div>
+
+                <div class="user-profile-widget">
+                    <span class="username">Username</span>
+                    <div class="avatar-round">
+                        <img src="Images/userfoto.jpg" alt="User Avatar">
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 1: JOGOS (DASHBOARD) -->
+            <div id="panel-jogos" class="tab-content-panel">
+                
+                <!-- CARROSSEL DE NOTÍCIAS AUTOMÁTICO (3s) -->
+                <div class="carousel-container">
+                    <div class="carousel-viewport">
+                        
+                        <!-- ==================== SLIDE 1 (EDITÁVEL) ==================== -->
+                        <div class="carousel-slide" style="background-image: url('https://s2-g1.glbimg.com/igicDTFiEBQcL2p17IqCbRR1BaM=/0x0:2560x1440/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/R/A/3lea3OTQiMgrqqvweeiQ/god-of-war-laufey.jpg');"> 
+                            <div class="slide-content">
+                                <h2 class="slide-title">NOVO JOGO DA SAGA GOD OF WAR</h2>
+                                <p class="slide-subtitle">Após 4 anos sem novidades, a saga retorna com uma nova experiência.</p>
+                                <a href="https://youtu.be/HLMX2w3cwuE" target="_blank" class="btn-view-news">Ver trailer</a>
+                            </div>
+                        </div>
+
+                        <!-- ==================== SLIDE 2 (EDITÁVEL) ==================== -->
+                        <div class="carousel-slide" style="background-image: url('https://onpoplife.com.br/wp-content/uploads/2026/03/mail-39-scaled.jpg');">
+                            <div class="slide-content">
+                                <h2 class="slide-title">Gráficos Avançados</h2>
+                                <p class="slide-subtitle">Novas da atualizações da NVDIA começarão a renderização em tempo real.</p>
+                                <a href="https://www.nvidia.com/pt-br/" target="_blank" class="btn-view-news">Ver Notícia</a>
+                            </div>
+                        </div>
+
+                        <!-- ==================== SLIDE 3 (EDITÁVEL) ==================== -->
+                        <div class="carousel-slide" style="background-image: url('https://progameguides.com/wp-content/uploads/2020/12/title.jpg?fit=900%2C506');">
+                            <div class="slide-content">
+                                <h2 class="slide-title">Destaque</h2>
+                                <p class="slide-subtitle">Torneios de Valorant ganha data e premiação de 1M. Prepare seu esquadrão.</p>
+                                <a href="https://playvalorant.com/pt-br/" target="_blank" class="btn-view-news">Ver Notícia</a>
+                            </div>
+                        </div>
+
+                        <!-- ==================== SLIDE 4 (EDITÁVEL) ==================== -->
+                        <div class="carousel-slide" style="background-image: url('https://images.nvidia.com/aem-dam/Solutions/geforce/news/dune-awakening-dlss-4-multi-frame-generation-out-now/summer-of-rtx-2025-key-visual.jpg');">
+                            <div class="slide-content">
+                                <h2 class="slide-title"> NVIDIA - Promoções de verão</h2>
+                                <p class="slide-subtitle">Confira as ofertas de verão da NVIDIA. Veja mais qual peça seu PC precisa.</p>
+                                <a href="https://www.nvidia.com/pt-br/" target="_blank" class="btn-view-news">Ver Notícia</a>
+                            </div>
+                        </div>
+
+                        <!-- ==================== SLIDE 5 (EDITÁVEL) ==================== -->
+                        <div class="carousel-slide" style="background-image: url('https://i.pinimg.com/control1/1200x/17/53/bf/1753bfbecfebc94c317d4dbb53cfd5cf.jpg');">
+                            <div class="slide-content">
+                                <h2 class="slide-title">RDR2 - Opinião</h2>
+                                <p class="slide-subtitle">RDR2, melhor jogo criado e feito pelo homem. Entenda a perfeição desse game.</p>
+                                <a href="https://www.rockstargames.com/rdr2" target="_blank" class="btn-view-news">Ver Notícia</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 5 Bolinhas Sincronizadas -->
+                    <div class="carousel-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <!-- SEÇÃO DE NOTÍCIAS (GRID 4 COLUNAS / 8 CARDS) -->
+                <h2 class="section-title">Notícias / <strong>Recentes</strong></h2>
+                <div class="news-grid">
+                    <!-- Cards de Notícias 1 a 8 -->
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Novos drivers de vídeo otimizados para RayTracing</h3>
+                            <span class="game-card-italic-text">Postado há 12 min</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Review do novo RPG que promete quebrar recordes</h3>
+                            <span class="game-card-italic-text">Postado há 1 hora</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Análise de periféricos premium ciano e magenta</h3>
+                            <span class="game-card-italic-text">Postado há 2 horas</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Atualização massiva corrige bugs nos consoles</h3>
+                            <span class="game-card-italic-text">Postado há 4 horas</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Modders recriam mapa clássico em motor potente</h3>
+                            <span class="game-card-italic-text">Postado ontem</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Torneio de e-sports bate recorde de público</h3>
+                            <span class="game-card-italic-text">Postado ontem</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1560253023-3ec5d502959f?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Estúdio independente anuncia sequência indie</h3>
+                            <span class="game-card-italic-text">Postado há 3 dias</span>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=400');"></div>
+                        <div class="game-card-body">
+                            <h3 class="game-card-title">Vendas globais de consoles atingem marcas recordes</h3>
+                            <span class="game-card-italic-text">Postado há 1 semana</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ABAS EM CONSTRUÇÃO COM MARCADOR UNIVERSAL -->
+            <!-- TAB 2: BIBLIOTECA -->
+            <div id="panel-biblioteca" class="tab-content-panel">
+                <div class="construction-wrapper">
+                    <div class="construction-img-placeholder"></div>
+                    <h2>Biblioteca</h2>
+                    <p>Esta seção encontra-se atualmente <i>em construção</i>.</p>
+                </div>
+            </div>
+
+            <!-- TAB 3: CONQUISTAS -->
+            <div id="panel-conquistas" class="tab-content-panel">
+                <div class="construction-wrapper">
+                    <div class="construction-img-placeholder"></div>
+                    <h2>Conquistas</h2>
+                    <p>Esta seção encontra-se atualmente <i>em construção</i>.</p>
+                </div>
+            </div>
+
+            <!-- TAB 4: FÓRUM -->
+            <div id="panel-forum" class="tab-content-panel">
+                <section class="forum-panel">
+                    <input type="checkbox" id="toggle-thread-form" class="toggle-thread-form">
+                    <div class="forum-header">
+                        <div>
+                            <h2>Fórum de Jogos</h2>
+                            <p>Discussões, dicas, rumores e lançamentos em um espaço comunitário para jogadores.</p>
+                        </div>
+                        <label for="toggle-thread-form" class="btn-create-thread">Novo tópico</label>
+                    </div>
+                    <div class="forum-controls">
+                        <div class="forum-search">
+                            <input type="search" placeholder="Buscar tópicos..." />
+                        </div>
+                        <div class="forum-filters">
+                            <button class="filter-chip active">Todos</button>
+                            <button class="filter-chip">GTA 6</button>
+                            <button class="filter-chip">Hardware</button>
+                            <button class="filter-chip">RPG</button>
+                        </div>
+                    </div>
+                    <div class="thread-form-panel">
+                        <div class="thread-form-card">
+                            <div class="thread-form-header">
+                                <h3>Criar novo tópico</h3>
+                                <span>Preencha os dados abaixo para iniciar uma discussão.</span>
+                            </div>
+                            <form>
+                                <label>Assunto
+                                    <input type="text" placeholder="Título do tópico" />
+                                </label>
+                                <label>Categoria
+                                    <select>
+                                        <option>GTA 6</option>
+                                        <option>RPG & Aventura</option>
+                                        <option>FPS & Tiro</option>
+                                        <option>Hardware</option>
+                                        <option>Mods & Comunidade</option>
+                                    </select>
+                                </label>
+                                <label>Descrição
+                                    <textarea rows="5" placeholder="Escreva uma pergunta ou ideia para o fórum..."></textarea>
+                                </label>
+                                <button type="submit" class="btn-submit-thread">Postar tópico</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="forum-layout">
+                        <aside class="forum-sidebar">
+                            <div class="sidebar-card">
+                                <h3>Categorias Populares</h3>
+                                <ul>
+                                    <li>GTA 6</li>
+                                    <li>RPG & Aventura</li>
+                                    <li>FPS & Tiro</li>
+                                    <li>Hardware</li>
+                                    <li>Mods & Comunidade</li>
+                                </ul>
+                            </div>
+                            <div class="sidebar-card">
+                                <h3>Últimos tópicos</h3>
+                                <ul>
+                                    <li>Rumores sobre o mapa de GTA 6</li>
+                                    <li>Melhores builds para jogos em 2026</li>
+                                    <li>Dicas de desempenho para PC</li>
+                                </ul>
+                            </div>
+                        </aside>
+                        <div class="forum-threads">
+                            <article class="thread-card">
+                                <div class="thread-card-top">
+                                    <h3>GTA 6: melhores opções de personagem</h3>
+                                    <span class="thread-status">Atualizado há 5 min</span>
+                                </div>
+                                <p>Compartilhe sua teoria sobre os protagonistas e qual é o melhor estilo para o modo história.</p>
+                                <div class="thread-card-bottom">
+                                    <span class="thread-tag">GTA 6</span>
+                                    <span>128 respostas</span>
+                                </div>
+                            </article>
+                            <article class="thread-card">
+                                <div class="thread-card-top">
+                                    <h3>Comparando RTX 5080 vs 7090 para jogos em 4K</h3>
+                                    <span class="thread-status">Postado há 1 hora</span>
+                                </div>
+                                <p>Qual GPU está valendo mais a pena para manter 60fps em títulos AAA atuais?</p>
+                                <div class="thread-card-bottom">
+                                    <span class="thread-tag">Hardware</span>
+                                    <span>54 respostas</span>
+                                </div>
+                            </article>
+                            <article class="thread-card">
+                                <div class="thread-card-top">
+                                    <h3>Novos detalhes de Metroid Prime 4</h3>
+                                    <span class="thread-status">Postado ontem</span>
+                                </div>
+                                <p>Discussão sobre fases, armas e se Samus vai usar o novo traje.</p>
+                                <div class="thread-card-bottom">
+                                    <span class="thread-tag">Metroid Prime</span>
+                                    <span>86 respostas</span>
+                                </div>
+                            </article>
+                            <article class="thread-card">
+                                <div class="thread-card-top">
+                                    <h3>Dicas para jogar em 4K com RTX DLSS</h3>
+                                    <span class="thread-status">Postado há 3 dias</span>
+                                </div>
+                                <p>Melhore a performance do seu PC sem abrir mão da qualidade visual usando DLSS e FSR.</p>
+                                <div class="thread-card-bottom">
+                                    <span class="thread-tag">Hardware</span>
+                                    <span>32 respostas</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TAB 5: CALENDÁRIO -->
+            <div id="panel-calendario" class="tab-content-panel">
+                <section class="calendar-panel">
+                    <div class="calendar-intro">
+                        <h2>Calendário de Lançamentos</h2>
+                        <p>Fique por dentro das datas mais aguardadas de jogos que estão chegando, com destaque especial para <strong>GTA 6</strong>.</p>
+                    </div>
+                    <div class="calendar-grid">
+                        <article class="release-card release-highlight">
+                            <div class="release-card-media">
+                                <span class="release-badge">Destaque</span>
+                                <img src="Images/gta6.png" alt="GTA 6">
+                            </div>
+                            <div class="release-card-body">
+                                <h3>GTA 6</h3>
+                                <span class="release-subtitle">Rockstar Games</span>
+                                <div class="release-date">Previsão de lançamento: 19 de novembro de 2026</div>
+                                <p>O maior lançamento esperado da década, com mundo aberto reapresentado no estilo neon urbano e narrativa cinematográfica.</p>
+                            </div>
+                        </article>
+                        <article class="release-card">
+                            <div class="release-card-media">
+                                <img src="Images/theelder.jpg" alt="The Elder Scrolls VI" />
+                            </div>
+                            <div class="release-card-body">
+                                <h3>The Elder Scrolls VI</h3>
+                                <span class="release-subtitle">Bethesda</span>
+                                <div class="release-date">Jan/Fev 2027 (estimado)</div>
+                                <p>Continuação da saga épica de RPG, prometendo um mundo magistral, exploração profunda e combate aperfeiçoado.</p>
+                            </div>
+                        </article>
+                        <article class="release-card">
+                            <div class="release-card-media">
+                                <img src="Images/marvelspiderman2.jpg" alt="Marvel's Spider-Man 2" />
+                            </div>
+                            <div class="release-card-body">
+                                <h3>Marvel's Spider-Man 2</h3>
+                                <span class="release-subtitle">Insomniac Games</span>
+                                <div class="release-date">Outubro de 2026</div>
+                                <p>Segunda aventura épica de Peter Parker e Miles Morales com combate fluido, vilões icônicos e mundo aberto de Nova York.</p>
+                            </div>
+                        </article>
+                        <article class="release-card">
+                            <div class="release-card-media">
+                                <img src="Images/metroidprime4.jpg" alt="Metroid Prime 4" />
+                            </div>
+                            <div class="release-card-body">
+                                <h3>Metroid Prime 4</h3>
+                                <span class="release-subtitle">Nintendo</span>
+                                <div class="release-date">2026 (estimado)</div>
+                                <p>Nova aventura de Samus Aran em primeira pessoa, com exploração espacial, combates intensos e atmosfera sci-fi clássica.</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <!-- TAB 6: WIKI -->
+            <div id="panel-wiki" class="tab-content-panel">
+                <div class="construction-wrapper">
+                    <div class="construction-img-placeholder"></div>
+                    <h2>Wiki</h2>
+                    <p>Esta seção encontra-se atualmente <i>em construção</i>.</p>
+                </div>
+            </div>
+
+            <!-- TAB 7: QUEM SOMOS -->
+            <div id="panel-quem-somos" class="tab-content-panel">
+                <section class="about-panel">
+                    <div class="about-header">
+                        <h2>Quem Somos</h2>
+                        <p>Somos uma equipe formada por cinco estudantes apaixonados por tecnologia e pelo universo dos games: <strong>Marcio Ramos, Juan Diego, Isaac Arão, Clara Castro e Lucas Meireles</strong>.</p>
+                    </div>
+
+                    <div class="about-content">
+                        <div class="about-section">
+                            <h3>Nosso Objetivo</h3>
+                            <p>Oferecer um espaço dedicado aos jogadores, reunindo informações, conteúdos e recursos relacionados ao mundo dos games de forma organizada e acessível. Buscamos criar um ambiente que conecte tecnologia e entretenimento, tornando a navegação simples, agradável e útil para todos os amantes de jogos.</p>
+                        </div>
+
+                        <div class="about-roles">
+                            <h3>Nossas Responsabilidades</h3>
+                            <div class="roles-grid">
+                                <div class="role-card">
+                                    <h4>Design & Interface</h4>
+                                    <p><strong>Lucas Meireles</strong> e <strong>Clara Castro</strong></p>
+                                    <span>Design visual moderno e interface intuitiva</span>
+                                </div>
+                                <div class="role-card">
+                                    <h4>Desenvolvimento HTML</h4>
+                                    <p><strong>Marcio Ramos</strong>, <strong>Juan Diego</strong> e <strong>Isaac Arão</strong></p>
+                                    <span>Estrutura, funcionamento e organização da plataforma</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about-team">
+                            <h3>Nossa Equipe</h3>
+                            <div class="team-members">
+                                <div class="member-card">
+                                    <div class="member-photo">
+                                        <img src="Images/marcio.jpeg" alt="Marcio Ramos">
+                                    </div>
+                                    <h4>Marcio Ramos</h4>
+                                    <span class="member-role">Desenvolvimento HTML</span>
+                                </div>
+                                <div class="member-card">
+                                    <div class="member-photo">
+                                        <img src="Images/juan.jpeg" alt="Juan Diego">
+                                    </div>
+                                    <h4>Juan Diego</h4>
+                                    <span class="member-role">Desenvolvimento HTML</span>
+                                </div>
+                                <div class="member-card">
+                                    <div class="member-photo">
+                                        <img src="Images/isaac.jpeg" alt="Isaac Arão">
+                                    </div>
+                                    <h4>Isaac Arão</h4>
+                                    <span class="member-role">Desenvolvimento HTML</span>
+                                </div>
+                                <div class="member-card">
+                                    <div class="member-photo">
+                                        <img src="Images/clara.jpeg" alt="Clara Castro">
+                                    </div>
+                                    <h4>Clara Castro</h4>
+                                    <span class="member-role">Design & Interface</span>
+                                </div>
+                                <div class="member-card">
+                                    <div class="member-photo">
+                                        <img src="Images/lucas.jpeg" alt="Lucas Meireles">
+                                    </div>
+                                    <h4>Lucas Meireles</h4>
+                                    <span class="member-role">Design & Interface</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about-footer">
+                            <p>Trabalhando em equipe, buscamos criar um ambiente que conecte tecnologia e entretenimento, tornando a navegação simples, agradável e útil para todos os amantes de jogos.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
